@@ -2,7 +2,7 @@ type Conjunction = 'and' | 'or' | 'not';
 
 type Operator = 'eq' | 'gt' | 'gte' | 'lt' | 'lte' | 'in' | 'regex';
 
-type Predicate = {
+export type Predicate = {
   fact: string;
   op: Operator;
   value: unknown;
