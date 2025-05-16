@@ -1,0 +1,44 @@
+{
+  "name": "ruleset-engine",
+  "version": "1.0.4",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "source": "src/index.ts",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "declaration": true,
+  "declarationDir": "dist",
+  "license": "MIT",
+  "keywords": [
+    "ruleset-engine",
+    "json-ruleset",
+    "rule-engine-json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hosembafer/ruleset-engine.git"
+  },
+  "author": "Rafayel Hovhannisyan <rafayel.hovhannisyan.95@gmail.com>",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "files": [
+    "dist",
+    "dist-cdn"
+  ],
+  "scripts": {
+    "build:npm": "BUILD_TARGET=npm vite build",
+    "build:cdn": "BUILD_TARGET=cdn vite build",
+    "build": "npm run build:npm && npm run build:cdn"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.18",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.3"
+  }
+}
