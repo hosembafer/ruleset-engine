@@ -8,7 +8,8 @@
     "declaration": true,
     "outDir": "dist",
     "skipLibCheck": true,
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "declarationMap": true
   },
   "include": ["src"]
 }
