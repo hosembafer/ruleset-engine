@@ -1,5 +1,6 @@
 # ⚙️ Ruleset Engine
 
+[![npm version](https://img.shields.io/npm/v/ruleset-engine?logo=npm)](https://www.npmjs.com/package/ruleset-engine)
 [![npm size](https://img.shields.io/bundlephobia/minzip/ruleset-engine?logo=npm)](https://www.npmjs.com/package/ruleset-engine)
 ![license](https://img.shields.io/github/license/hosembafer/ruleset-engine)
 
