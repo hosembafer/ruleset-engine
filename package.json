@@ -33,7 +33,8 @@
   "scripts": {
     "build:npm": "BUILD_TARGET=npm vite build",
     "build:cdn": "BUILD_TARGET=cdn vite build",
-    "build": "npm run build:npm && npm run build:cdn"
+    "build": "npm run build:npm && npm run build:cdn",
+    "test": "tsx ./src/test.ts"
   },
   "devDependencies": {
     "@types/node": "^22.15.18",

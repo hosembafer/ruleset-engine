@@ -1,6 +1,6 @@
 type Conjunction = 'and' | 'or' | 'not';
 
-type Operator = 'eq' | 'gt' | 'gte' | 'lt' | 'lte' | 'in' | 'regex';
+type Operator = 'eq' | 'gt' | 'gte' | 'lt' | 'lte' | 'in' | 'has' | 'regex';
 
 export type Predicate = {
   fact: string;
@@ -37,13 +37,22 @@ class RulesetEngine {
     const L = p.fact.split('.').reduce<any>((o, k) => o?.[k], f);
     const R = this.tpl(p.value, f);
     switch (p.op) {
-      case 'eq':    return L === R;
-      case 'gt':    return +L >  +R;
-      case 'gte':   return +L >= +R;
-      case 'lt':    return +L <  +R;
-      case 'lte':   return +L <= +R;
-      case 'in':    return Array.isArray(R) && R.includes(L);
-      case 'regex': return new RegExp(String(R)).test(String(L));
+      case 'eq':
+        return L === R;
+      case 'gt':
+        return +L >  +R;
+      case 'gte':
+        return +L >= +R;
+      case 'lt':
+        return +L <  +R;
+      case 'lte':
+        return +L <= +R;
+      case 'in':
+        return R.includes(L);
+      case 'has':
+        return L.includes(String(R));
+      case 'regex':
+        return new RegExp(String(R)).test(String(L));
     }
   }
 }

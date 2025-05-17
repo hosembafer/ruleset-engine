@@ -28,9 +28,11 @@ const activationEngine = new RulesetEngine([
     "or",
     {fact: "path", op: 'eq', value: "/app/login"},
     {fact: "path", op: 'eq', value: "/signup"}
-  ]
+  ],
+  {fact: 'url', op: 'has', value: 'https'}
 ]);
 const activationEligible = activationEngine.evaluate({
-  path: "/app/login"
+  path: "/app/login",
+  url: "https://example.com/app/login",
 });
 console.log({ activationEligible });

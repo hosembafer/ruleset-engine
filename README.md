@@ -24,13 +24,13 @@ engine.evaluate({ age: 21, country: 'AM' }); // → true
 
 ## ✨ Features
 
-| Feature                      | Notes                                                                |
-| ---------------------------- | -------------------------------------------------------------------- |
-| **Declarative rules**        | Compose predicates with `and`, `or`, and `not`—no code in your data. |
-| **Rich operator set**        | `eq`, `gt`, `gte`, `lt`, `lte`, `in`, and `regex` out of the box.    |
-| **String-template look-ups** | Reference dynamic data with `{{ path.to.value }}` placeholders.      |
-| **TypeScript-first**         | Fully typed API—all rules are validated at compile time.             |
-| **Runtime-agnostic**         | Works in Node, Bun, Deno, or directly in the browser (IIFE/UMD/ESM). |
+| Feature                      | Notes                                                                   |
+| ---------------------------- |-------------------------------------------------------------------------|
+| **Declarative rules**        | Compose predicates with `and`, `or`, and `not`—no code in your data.    |
+| **Rich operator set**        | `eq`, `gt`, `gte`, `lt`, `lte`, `in`, `has`, and `regex` out of the box. |
+| **String-template look-ups** | Reference dynamic data with `{{ path.to.value }}` placeholders.         |
+| **TypeScript-first**         | Fully typed API—all rules are validated at compile time.                |
+| **Runtime-agnostic**         | Works in Node, Bun, Deno, or directly in the browser (IIFE/UMD/ESM).    |
 
 ---
 
@@ -94,6 +94,7 @@ type Operator =
   | 'lt'    // <
   | 'lte'   // ≤
   | 'in'    // left ∈ right[]
+  | 'has'   // right ⊂ left[]
   | 'regex' // RegExp test
 
 type Predicate = { fact: string; op: Operator; value: unknown };
