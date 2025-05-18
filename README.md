@@ -4,7 +4,7 @@
 [![npm size](https://img.shields.io/bundlephobia/minzip/ruleset-engine?logo=npm)](https://www.npmjs.com/package/ruleset-engine)
 ![license](https://img.shields.io/github/license/hosembafer/ruleset-engine)
 
-A tiny (≈ 1 KB gzipped), zero-dependency TypeScript library for evaluating rule trees expressed as JSON-serialisable data.
+A tiny (≈ 1 KB gzipped), zero-dependency TypeScript library for evaluating rule trees expressed as JSON-serializable data.
 
 ```ts
 import { RulesetEngine } from 'ruleset-engine';
