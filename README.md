@@ -1,7 +1,7 @@
 # ⚙️ Ruleset Engine
 
 [![npm version](https://img.shields.io/npm/v/ruleset-engine?logo=npm&logoColor=CB3837)](https://www.npmjs.com/package/ruleset-engine)
-[![npm size](https://img.shields.io/bundlephobia/minzip/ruleset-engine?logo=javascript&logoColor=#F7DF1E)](https://www.npmjs.com/package/ruleset-engine)
+[![npm size](https://img.shields.io/bundlephobia/minzip/ruleset-engine?logo=javascript&logoColor=#F7DF1E)](https://bundlephobia.com/package/ruleset-engine)
 ![license](https://img.shields.io/github/license/hosembafer/ruleset-engine)
 
 A tiny (≈ 1 KB gzipped), zero-dependency TypeScript library for evaluating rule trees expressed as JSON-serializable data.
