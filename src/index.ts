@@ -1,4 +1,4 @@
-type Conjunction = 'and' | 'or' | 'not';
+type Conjunction = 'all' | 'any' | 'not_all' | 'not_any';
 
 type Operator = 'eq' | 'gt' | 'gte' | 'lt' | 'lte' | 'in' | 'has' | 'regex';
 
@@ -20,9 +20,16 @@ class RulesetEngine {
     if (Array.isArray(n)) {
       const [op, ...kids] = n;
       const res = kids.map(k => this.evaluate(facts, k));
-      return op === 'and' ? res.every(Boolean)
-        : op === 'or'  ? res.some(Boolean)
-          : !res[0];
+      switch (op) {
+        case "all":
+          return res.every(Boolean);
+        case "any":
+          return res.some(Boolean);
+        case "not_all":
+          return !res.every(Boolean);
+        case "not_any":
+          return !res.some(Boolean);
+      }
     }
     return this.test(n, facts);
   }

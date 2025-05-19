@@ -1,12 +1,12 @@
 import { Ruleset, RulesetEngine } from './index.ts';
 
 const engine = new RulesetEngine([
-  "and",
+  "all",
   { "fact": "country", "op": "eq", "value": "US" },
   [
-    "or",
+    "any",
     [
-      "and",
+      "all",
       { "fact": "device",  "op": "eq", "value": "mobile" },
       { "fact": "browser", "op": "regex", "value": "Chrome" }
     ],
@@ -22,10 +22,10 @@ const eligible = engine.evaluate({
 console.log({ eligible });
 
 const activationEngine = new RulesetEngine([
-  "and",
-  ["not", {fact: "path", op: 'eq', value: "/app"}],
+  "all",
+  ["not_all", {fact: "path", op: 'eq', value: "/app"}],
   [
-    "or",
+    "any",
     {fact: "path", op: 'eq', value: "/app/login"},
     {fact: "path", op: 'eq', value: "/signup"}
   ],

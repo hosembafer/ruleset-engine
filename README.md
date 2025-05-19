@@ -10,7 +10,7 @@ A tiny (≈ 1 KB gzipped), zero-dependency TypeScript library for evaluating rul
 import { RulesetEngine } from 'ruleset-engine';
 
 const rules = [
-  'and',
+  'all',
   { fact: 'age', op: 'gte', value: 18 },
   { fact: 'country', op: 'eq', value: 'AM' }
 ] as const;
@@ -24,13 +24,13 @@ engine.evaluate({ age: 21, country: 'AM' }); // → true
 
 ## ✨ Features
 
-| Feature                      | Notes                                                                   |
-| ---------------------------- |-------------------------------------------------------------------------|
-| **Declarative rules**        | Compose predicates with `and`, `or`, and `not`—no code in your data.    |
-| **Rich operator set**        | `eq`, `gt`, `gte`, `lt`, `lte`, `in`, `has`, and `regex` out of the box. |
-| **String-template look-ups** | Reference dynamic data with `{{ path.to.value }}` placeholders.         |
-| **TypeScript-first**         | Fully typed API—all rules are validated at compile time.                |
-| **Runtime-agnostic**         | Works in Node, Bun, Deno, or directly in the browser (IIFE/UMD/ESM).    |
+| Feature                      | Notes                                                                                |
+| ---------------------------- |--------------------------------------------------------------------------------------|
+| **Declarative rules**        | Compose predicates with `all`, `any`, `not_all`, and `not_any`—no code in your data. |
+| **Rich operator set**        | `eq`, `gt`, `gte`, `lt`, `lte`, `in`, `has`, and `regex` out of the box.             |
+| **String-template look-ups** | Reference dynamic data with `{{ path.to.value }}` placeholders.                      |
+| **TypeScript-first**         | Fully typed API—all rules are validated at compile time.                             |
+| **Runtime-agnostic**         | Works in Node, Bun, Deno, or directly in the browser (IIFE/UMD/ESM).                 |
 
 ---
 
@@ -63,8 +63,8 @@ Via CDN (UMD):
 import { RulesetEngine, Ruleset } from 'ruleset-engine';
 
 const discountRules: Ruleset = [
-  'or',
-  ['and',
+  'any',
+  ['all',
     { fact: 'user.segment', op: 'eq', value: 'vip' },
     { fact: 'order.total', op: 'gte', value: 100 }
   ],
@@ -85,7 +85,7 @@ engine.evaluate({
 ## 📚 Rule syntax
 
 ```ts
-type Conjunction = 'and' | 'or' | 'not';
+type Conjunction = 'all' | 'any' | 'not_all' | 'not_any';
 
 type Operator =
   | 'eq'    // strict equality
